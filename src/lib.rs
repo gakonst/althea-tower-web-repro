@@ -30,9 +30,9 @@ impl_web! {
             let web3 = Web3::new(&self.endpoint);
             Box::new(
                 web3.eth_accounts()
-                .map_err(move |err| println!("Couldn't fetch nonce. Got error: {:#?}", err))
-                .and_then(move |nonce| {
-                    println!("Obtained nonce {}", nonce);
+                .map_err(move |err| println!("Couldn't fetch accounts. Got error: {:#?}", err))
+                .and_then(move |accounts| {
+                    println!("Got accounts {:?}", accounts);
                     Ok(())
                 })
             )
